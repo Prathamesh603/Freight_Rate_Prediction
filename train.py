@@ -1,6 +1,8 @@
 """Freight rate prediction - leakage-safe temporal pipeline.
-Run:  python train.py   (from D:\\Assignments\\Spotter.AI)
-Outputs: validation_predictions.csv, Data/december-chart-inputs.csv (filled), feature_importance.png
+Run:  python train.py   (from the repo root)
+Outputs: validation_predictions.csv, Data/december-chart-inputs.csv (filled),
+         Data/december_chart_inputs.csv (same content, name used by the score example),
+         outputs/feature_importance.png
 """
 from pathlib import Path
 import numpy as np
@@ -244,6 +246,7 @@ def main():
     dec_out = dec_tmpl.copy()
     dec_out["predicted_rate"] = np.round(dp, 2)
     dec_out.to_csv(DATA / "december-chart-inputs.csv", index=False)
+    dec_out.to_csv(DATA / "december_chart_inputs.csv", index=False)  # same content, underscore name used by the score example
     print(f"Saved december-chart-inputs.csv range ${dec_out['predicted_rate'].min():.2f}-${dec_out['predicted_rate'].max():.2f}")
     print(dec_out[["date", "predicted_rate"]].to_string(index=False))
 
@@ -257,8 +260,9 @@ def main():
         plt.barh(top["feature"], top["importance"])
         plt.title(f"Top 15 - {wname}")
         plt.tight_layout()
-        plt.savefig(BASE / "feature_importance.png", dpi=150)
-        print("Saved feature_importance.png")
+        (BASE / "outputs").mkdir(exist_ok=True)
+        plt.savefig(BASE / "outputs" / "feature_importance.png", dpi=150)
+        print("Saved outputs/feature_importance.png")
     except Exception as e:
         print("importance skipped:", e)
 

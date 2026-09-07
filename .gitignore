@@ -30,3 +30,7 @@ pdf_content.txt
 
 # office lock files
 ~$*
+
+# submission report + its generator are submitted separately, not pushed
+*.docx
+gen_report.py
