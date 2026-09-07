@@ -41,7 +41,7 @@ python score.py --predictions validation_predictions.csv --december-predictions 
 ## Files
 
 - `train.py` - the full pipeline: clean, features, validation, model comparison, final predictions
-- `freight_rate_prediction.ipynb` - my exploration notebook (EDA, early experiments)
+- `freight_rate_prediction.ipynb` - full walkthrough of the same pipeline (run from repo root)
 - `score.py` - provided validation + December chart script, unchanged
 - `validation_predictions.csv` - final predictions for the 12,000 loads
 - `Data/` - input data (see table above)
