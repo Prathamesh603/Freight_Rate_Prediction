@@ -1,0 +1,32 @@
+# python
+__pycache__/
+*.pyc
+*.pyo
+venv/
+.venv/
+
+# jupyter
+.ipynb_checkpoints/
+
+# windows / mac junk
+Thumbs.db
+.DS_Store
+
+# editors - remove if you use them
+.vscode/
+.idea/
+
+# catboost training logs, recreated every run
+catboost_info/
+
+# scorer output, recreated with score.py
+scorer_results/
+
+# old preview chart from early notebook run, superseded by scorer chart
+december_predictions_preview.png
+
+# scratch text I extracted from the pdf, not needed
+pdf_content.txt
+
+# office lock files
+~$*
